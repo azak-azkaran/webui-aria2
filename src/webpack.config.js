@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
 const BUILD_DIR = path.join(__dirname, "docs");
-const APP_DIR = path.join(__dirname, "src", "js");
+const APP_DIR = path.join(__dirname, "", "js");
 
 const config = {
   entry: {
@@ -49,7 +49,7 @@ const config = {
       $: "jquery"
     }),
     new HtmlWebpackPlugin({
-      template: "src/index-template.html",
+      template: "index-template.html",
       inject: "head"
     }),
     new MiniCssExtractPlugin({
@@ -68,8 +68,8 @@ const config = {
     modules: [
       path.resolve("./"),
       path.resolve("./node_modules"),
-      path.resolve("./src/js"),
-      path.resolve("./src/scss")
+      path.resolve("./js"),
+      path.resolve("./scss")
     ]
   }
 };

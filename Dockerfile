@@ -1,6 +1,6 @@
 FROM node:latest AS node-env
-COPY . /webui-aria2
-WORKDIR /webui-aria2
+COPY src /webui-aria2
+WORKDIR /webui-aria2/
 RUN npm install && npm run build
 
 FROM golang:alpine AS build-env
@@ -16,7 +16,7 @@ RUN apk --no-cache add shadow && \
         useradd -r -g dummy dummy -u 1000
 
 COPY --from=node-env /webui-aria2/docs /webui-aria2/
-COPY docs/favicon.ico  /webui-aria2/favicon.ico
+COPY src/favicon.ico  /webui-aria2/favicon.ico
 COPY --from=build-env /src/main /main
 EXPOSE 8080/tcp
 
