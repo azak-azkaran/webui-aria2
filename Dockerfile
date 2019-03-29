@@ -16,6 +16,7 @@ RUN apk --no-cache add shadow && \
         useradd -r -g dummy dummy -u 1000
 
 COPY --from=node-env /webui-aria2/docs /webui-aria2/
+COPY docs/favicon.ico  /webui-aria2/favicon.ico
 COPY --from=build-env /src/main /main
 EXPOSE 8080/tcp
 
