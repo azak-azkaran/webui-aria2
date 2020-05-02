@@ -1,15 +1,19 @@
-webui-aria2:
-    image: azakazkaran/webui-aria2:latest
-    ports:
-        - "9100:8080"
-aria2:
-    image: azakazkaran/aria2:latest
-    volumes:
-        - /media/azak/putio/Downloads/:/downloads
-    environment:
-        - "CONCURRENT_DOWNLOADS=4"
-        - "CONNECTIONS_PER_SERVER=4"
-        - "SPLIT=4"
-        - "AUTO_FILE_RENAMING=false"
-    ports:
-        - "6800:6800"
+version: '3'
+services:
+    webui-aria2:
+        image: azakazkaran/webui-aria2:latest
+        ports:
+            - "9100:8080"
+    aria2:
+        image: azakazkaran/aria2:latest
+        volumes:
+            - ~/Downloads/:/downloads
+        environment:
+            - "CONCURRENT_DOWNLOADS=4"
+            - "CONNECTIONS_PER_SERVER=4"
+            - "SPLIT=4"
+            - "AUTO_FILE_RENAMING=false"
+            - "SAVE_SESSION_INTERVAL=10"
+            - "LOG=-"
+        ports:
+            - "6800:6800"webui-aria2:
