@@ -16,4 +16,4 @@ services:
             - "SAVE_SESSION_INTERVAL=10"
             - "LOG=-"
         ports:
-            - "6800:6800"webui-aria2:
+            - "6800:6800"
